@@ -1,4 +1,3 @@
-import 'package:components/src/pages/alert_page.dart';
 import 'package:components/src/providers/menu_provider.dart';
 import 'package:components/src/utils/icon_string_util.dart';
 import 'package:flutter/material.dart';
@@ -19,8 +18,8 @@ class HomePage extends StatelessWidget {
       future: menuProvider.loadData(),
       initialData: [],
       builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
-        print('builder');
-        print(snapshot.data);
+        // print('builder');
+        // print(snapshot.data);
         return ListView(
           children: _listItems(snapshot.data, context),
         );
