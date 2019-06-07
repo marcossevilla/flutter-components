@@ -8,8 +8,11 @@ class CardPage extends StatelessWidget {
         title: Text('Cards'),
       ),
       body: ListView(
-        padding: EdgeInsets.all(10.0),
-        children: <Widget>[_cardTypeOne()],
+        padding: EdgeInsets.all(20.0),
+        children: <Widget>[
+          _cardTypeOne(),
+          _cardTypeTwo(),
+        ],
       ),
     );
   }
@@ -38,6 +41,33 @@ class CardPage extends StatelessWidget {
                 onPressed: () {},
               ),
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _cardTypeTwo() {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          FadeInImage(
+            image:
+                NetworkImage('http://www.facets.la/wallpaper/W_2013_199.jpg'),
+            placeholder: AssetImage('assets/jar-loading.gif'),
+            fadeInDuration: Duration(milliseconds: 200),
+            height: 300.0,
+            fit: BoxFit.cover,
+          ),
+
+          // Image from URL
+          // Image(
+          //   image:
+          //       NetworkImage('http://www.facets.la/wallpaper/W_2013_199.jpg'),
+          // ),
+          Container(
+            padding: EdgeInsets.all(20.0),
+            child: Text('Something something something'),
           ),
         ],
       ),
