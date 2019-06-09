@@ -6,6 +6,9 @@ class AvatarPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Avatar Page'),
+        actions: <Widget>[
+          CircleAvatar(),
+        ],
       ),
     );
   }
