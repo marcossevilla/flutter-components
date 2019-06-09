@@ -55,8 +55,9 @@ class CardPage extends StatelessWidget {
       child: Column(
         children: <Widget>[
           FadeInImage(
-            image:
-                NetworkImage('http://www.facets.la/wallpaper/W_2013_199.jpg'),
+            image: NetworkImage(
+              'http://www.facets.la/wallpaper/W_2013_199.jpg',
+            ),
             placeholder: AssetImage('assets/jar-loading.gif'),
             fadeInDuration: Duration(milliseconds: 200),
             height: 300.0,
