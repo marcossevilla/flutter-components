@@ -11,7 +11,13 @@ class CardPage extends StatelessWidget {
         padding: EdgeInsets.all(20.0),
         children: <Widget>[
           _cardTypeOne(),
+          SizedBox(height: 30.0),
           _cardTypeTwo(),
+          SizedBox(height: 30.0),
+          _cardTypeOne(),
+          SizedBox(height: 30.0),
+          _cardTypeTwo(),
+          SizedBox(height: 30.0),
         ],
       ),
     );
@@ -19,6 +25,8 @@ class CardPage extends StatelessWidget {
 
   Widget _cardTypeOne() {
     return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
       child: Column(
         children: <Widget>[
           ListTile(
@@ -48,7 +56,7 @@ class CardPage extends StatelessWidget {
   }
 
   Widget _cardTypeTwo() {
-    return Card(
+    final card = Container(
       child: Column(
         children: <Widget>[
           FadeInImage(
@@ -66,10 +74,30 @@ class CardPage extends StatelessWidget {
           //       NetworkImage('http://www.facets.la/wallpaper/W_2013_199.jpg'),
           // ),
           Container(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(10.0),
             child: Text('Something something something'),
           ),
         ],
+      ),
+    );
+
+    return Container(
+      child: ClipRRect(
+        child: card,
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(30.0),
+        color: Colors.white,
+        boxShadow: <BoxShadow>[
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 10.0,
+            spreadRadius: 2.0,
+            offset: Offset(1.0, 10.0),
+          ),
+        ],
+        // color: Colors.red,
       ),
     );
   }
