@@ -1,6 +1,7 @@
 {
     "appName": "Components",
-    "routes": [{
+    "routes": [
+        {
             "route": "alert",
             "icon": "add_alert",
             "text": "Alerts"
@@ -14,6 +15,16 @@
             "route": "card",
             "icon": "folder_open",
             "text": "Cards"
+        },
+        {
+            "route": "animatedContainer",
+            "icon": "donut_large",
+            "text": "Animated Container"
+        },
+        {
+            "route": "inputs",
+            "icon": "input",
+            "text": "Inputs"
         }
     ]
 }

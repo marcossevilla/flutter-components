@@ -20,19 +20,19 @@ class HomePageTemp extends StatelessWidget {
     );
   }
 
-  List<Widget> _createItems() {
-    List<Widget> list = new List<Widget>();
+  // List<Widget> _createItems() {
+  //   List<Widget> list = new List<Widget>();
 
-    for (String op in options) {
-      final tempWidget = new ListTile(
-        title: Text(op),
-      );
+  //   for (String op in options) {
+  //     final tempWidget = new ListTile(
+  //       title: Text(op),
+  //     );
 
-      // use of cascade operator
-      list..add(tempWidget)..add(Divider());
-    }
-    return list;
-  }
+  //     // use of cascade operator
+  //     list..add(tempWidget)..add(Divider());
+  //   }
+  //   return list;
+  // }
 
   List<Widget> _shortList() {
     return options.map((item) {
