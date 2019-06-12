@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:date_format/date_format.dart';
 
 class InputPage extends StatefulWidget {
   InputPage({Key key}) : super(key: key);
@@ -18,7 +19,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Text Inputs'),
+        title: Text('Inputs'),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
@@ -30,7 +31,7 @@ class _InputPageState extends State<InputPage> {
           _createPassword(),
           SizedBox(height: 20.0),
           _createDate(context),
-          SizedBox(height: 20.0),
+          SizedBox(height: 40.0),
           _createPerson(),
         ],
       ),
@@ -44,9 +45,9 @@ class _InputPageState extends State<InputPage> {
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
         counter: Text('Chars: ${_name.length}'),
-        hintText: 'Name',
+        // hintText: 'Name',
         labelText: 'Name',
-        helperText: 'Name only',
+        // helperText: 'Name only',
         suffixIcon: Icon(Icons.accessibility_new),
         icon: Icon(Icons.account_circle),
       ),
@@ -61,7 +62,14 @@ class _InputPageState extends State<InputPage> {
   Widget _createPerson() {
     return ListTile(
       title: Text('Name is $_name.'),
-      subtitle: Text('$_email'),
+      subtitle: Column(
+        children: <Widget>[
+          SizedBox(height: 20.0),
+          Text('$_email'),
+          SizedBox(height: 20.0),
+          Text('$_date'),
+        ],
+      ),
     );
   }
 
@@ -72,9 +80,9 @@ class _InputPageState extends State<InputPage> {
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
         counter: Text('Chars: ${_email.length}'),
-        hintText: 'Email',
+        // hintText: 'Email',
         labelText: 'Email',
-        helperText: 'Email only',
+        // helperText: 'Email only',
         suffixIcon: Icon(Icons.alternate_email),
         icon: Icon(Icons.email),
       ),
@@ -93,9 +101,9 @@ class _InputPageState extends State<InputPage> {
       decoration: InputDecoration(
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.0)),
         counter: Text('Chars: ${_password.length}'),
-        hintText: 'Password',
+        // hintText: 'Password',
         labelText: 'Password',
-        helperText: 'Password only',
+        // helperText: 'Password only',
         suffixIcon: Icon(Icons.lock),
         icon: Icon(Icons.lock_outline),
       ),
@@ -129,7 +137,7 @@ class _InputPageState extends State<InputPage> {
   }
 
   _selectDate(BuildContext context) async {
-    DateTime selected = await showDatePicker(
+    DateTime _selected = await showDatePicker(
       context: context,
       initialDate: new DateTime.now(),
       firstDate: new DateTime(1940),
@@ -137,9 +145,9 @@ class _InputPageState extends State<InputPage> {
       // locale: Locale('es', 'ES'),
     );
 
-    if (selected != null) {
+    if (_selected != null) {
       setState(() {
-        _date = selected.toString();
+        _date = formatDate(_selected, [dd, '/', mm, '/', yyyy]);
         _inputDateController.text = _date;
       });
     }

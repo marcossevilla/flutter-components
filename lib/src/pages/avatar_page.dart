@@ -5,7 +5,7 @@ class AvatarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Avatar Page'),
+        title: Text('Avatars'),
         actions: <Widget>[
           Container(
             padding: EdgeInsets.all(5.0),
@@ -13,7 +13,7 @@ class AvatarPage extends StatelessWidget {
               backgroundImage: NetworkImage(
                 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Stan_Lee_by_Gage_Skidmore_3.jpg/220px-Stan_Lee_by_Gage_Skidmore_3.jpg',
               ),
-              radius: 25.0,
+              radius: 20.0,
             ),
           ),
           Container(
