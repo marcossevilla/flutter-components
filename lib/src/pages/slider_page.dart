@@ -20,7 +20,8 @@ class _SliderPageState extends State<SliderPage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             _createSlider(),
-            _createCheckbox(),
+            // _createCheckbox(),
+            _createSwitch(),
             _createImage(),
           ],
         ),
@@ -36,9 +37,11 @@ class _SliderPageState extends State<SliderPage> {
       value: _sliderValue,
       min: 10.0,
       max: 400.0,
-      onChanged: (value) {
-        setState(() => _sliderValue = value);
-      },
+      onChanged: (_blockCheck)
+          ? null
+          : (value) {
+              setState(() => _sliderValue = value);
+            },
     );
   }
 
@@ -52,8 +55,26 @@ class _SliderPageState extends State<SliderPage> {
     );
   }
 
-  Widget _createCheckbox() {
-    return Checkbox(
+  // Widget _createCheckbox() {
+  //   // return Checkbox(
+  //   //   value: _blockCheck,
+  //   //   onChanged: (value) {
+  //   //     setState(() => _blockCheck = value);
+  //   //   },
+  //   // );
+
+  //   return CheckboxListTile(
+  //     title: Text('Block slider'),
+  //     value: _blockCheck,
+  //     onChanged: (value) {
+  //       setState(() => _blockCheck = value);
+  //     },
+  //   );
+  // }
+
+  _createSwitch() {
+    return SwitchListTile(
+      title: Text('Block slider'),
       value: _blockCheck,
       onChanged: (value) {
         setState(() => _blockCheck = value);
