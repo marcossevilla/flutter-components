@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:date_format/date_format.dart';
 
 class InputPage extends StatefulWidget {
-  InputPage({Key key}) : super(key: key);
-
   _InputPageState createState() => _InputPageState();
 }
 
@@ -12,6 +10,16 @@ class _InputPageState extends State<InputPage> {
   String _email = '';
   String _password = '';
   String _date = '';
+
+  List<String> _powers = [
+    'Superhuman Speed',
+    'Superhuman Reflexes',
+    'Superhuman Stamina',
+    'Superhuman Agility',
+    'Speed Force Aura'
+  ];
+
+  String _selectedOption = 'Superhuman Speed';
 
   TextEditingController _inputDateController = new TextEditingController();
 
@@ -25,12 +33,14 @@ class _InputPageState extends State<InputPage> {
         padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 20.0),
         children: <Widget>[
           _createInput(),
-          SizedBox(height: 20.0),
+          SizedBox(height: 15.0),
           _createEmail(),
-          SizedBox(height: 20.0),
+          SizedBox(height: 15.0),
           _createPassword(),
-          SizedBox(height: 20.0),
+          SizedBox(height: 15.0),
           _createDate(context),
+          SizedBox(height: 15.0),
+          _createDropdown(),
           SizedBox(height: 40.0),
           _createPerson(),
         ],
@@ -70,6 +80,7 @@ class _InputPageState extends State<InputPage> {
           Text('$_date'),
         ],
       ),
+      trailing: Text(_selectedOption),
     );
   }
 
@@ -151,5 +162,36 @@ class _InputPageState extends State<InputPage> {
         _inputDateController.text = _date;
       });
     }
+  }
+
+  List<DropdownMenuItem<String>> getDropdownOptions() {
+    List<DropdownMenuItem<String>> list = new List();
+    _powers.forEach((power) {
+      list.add(
+        DropdownMenuItem(
+          child: Text(power),
+          value: power,
+        ),
+      );
+    });
+    return list;
+  }
+
+  Widget _createDropdown() {
+    return Row(
+      children: <Widget>[
+        Icon(Icons.subdirectory_arrow_right),
+        SizedBox(width: 30.0),
+        DropdownButton(
+          value: _selectedOption,
+          items: getDropdownOptions(),
+          onChanged: (op) {
+            setState(() {
+              _selectedOption = op;
+            });
+          },
+        ),
+      ],
+    );
   }
 }
