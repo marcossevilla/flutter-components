@@ -11,7 +11,7 @@ class AvatarPage extends StatelessWidget {
             padding: EdgeInsets.all(5.0),
             child: CircleAvatar(
               backgroundImage: NetworkImage(
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Stan_Lee_by_Gage_Skidmore_3.jpg/220px-Stan_Lee_by_Gage_Skidmore_3.jpg',
+                'https://bit.ly/2wNUdV4',
               ),
               radius: 20.0,
             ),
@@ -28,7 +28,7 @@ class AvatarPage extends StatelessWidget {
       body: Center(
         child: FadeInImage(
           image: NetworkImage(
-            'https://www.eldiario.es/fotos/Stan-Lee-lanzando-presentacion-Spiderman_EDIIMA20181112_0851_19.jpg',
+            'https://bit.ly/2qL64QE',
           ),
           placeholder: AssetImage('assets/jar-loading.gif'),
           fadeInDuration: Duration(milliseconds: 200),

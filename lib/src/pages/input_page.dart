@@ -62,9 +62,7 @@ class _InputPageState extends State<InputPage> {
         icon: Icon(Icons.account_circle),
       ),
       onChanged: (value) {
-        setState(() {
-          _name = value;
-        });
+        setState(() => _name = value);
       },
     );
   }
@@ -98,9 +96,7 @@ class _InputPageState extends State<InputPage> {
         icon: Icon(Icons.email),
       ),
       onChanged: (value) {
-        setState(() {
-          _email = value;
-        });
+        setState(() => _email = value);
       },
     );
   }
@@ -119,10 +115,7 @@ class _InputPageState extends State<InputPage> {
         icon: Icon(Icons.lock_outline),
       ),
       onChanged: (value) {
-        setState(() {
-          _password = value;
-          // print(_password);
-        });
+        setState(() => _password = value);
       },
     );
   }
@@ -186,9 +179,7 @@ class _InputPageState extends State<InputPage> {
           value: _selectedOption,
           items: getDropdownOptions(),
           onChanged: (op) {
-            setState(() {
-              _selectedOption = op;
-            });
+            setState(() => _selectedOption = op);
           },
         ),
       ],
