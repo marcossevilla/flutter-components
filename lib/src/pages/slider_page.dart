@@ -30,7 +30,7 @@ class _SliderPageState extends State<SliderPage> {
   }
 
   Widget _createSlider() {
-    return Slider(
+    return Slider.adaptive(
       // activeColor: ,
       label: 'Image Size',
       // divisions: 10,
@@ -73,7 +73,7 @@ class _SliderPageState extends State<SliderPage> {
   // }
 
   _createSwitch() {
-    return SwitchListTile(
+    return SwitchListTile.adaptive(
       title: Text('Block slider'),
       value: _blockCheck,
       onChanged: (value) {
