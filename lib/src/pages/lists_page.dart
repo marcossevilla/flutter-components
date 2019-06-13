@@ -70,13 +70,14 @@ class _ListPageState extends State<ListPage> {
       _lastItem++;
       _items.add(_lastItem);
     }
+    setState(() {});
   }
 
   Future fetchData() async {
     _isLoading = true;
     setState(() {});
     final _duration = new Duration(seconds: 2);
-    new Timer(_duration, httpResponse);
+    return new Timer(_duration, httpResponse);
   }
 
   void httpResponse() {
@@ -109,7 +110,7 @@ class _ListPageState extends State<ListPage> {
     }
   }
 
-  Future<void> getPage() async {
+  Future getPage() async {
     final duration = Duration(seconds: 2);
     new Timer(duration, () {
       _items.clear();
